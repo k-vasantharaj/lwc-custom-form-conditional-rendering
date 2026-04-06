@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Account Form">
+        <div class="slds-p-around_medium">
+
+            <lightning-record-edit-form
+                object-api-name={objectApiName}
+                onsuccess={handleSuccess}
+            >
+                <lightning-messages></lightning-messages>
+
+                <!-- Name -->
+                <lightning-input-field field-name="Name"></lightning-input-field>
+
+                <!-- Type -->
+                <lightning-input-field
+                    field-name="Type"
+                    onchange={handleTypeChange}>
+                </lightning-input-field>
+
+                <!-- Conditional Field -->
+                <template if:true={isProspect}>
+                    <lightning-input-field field-name="Industry"></lightning-input-field>
+                </template>
+
+                <!-- Actions -->
+                <div class="slds-m-top_medium slds-grid slds-gutters slds-align_absolute-center">
+                    <lightning-button
+                        type="submit"
+                        label="Save"
+                        variant="brand">
+                    </lightning-button>
+
+                    <lightning-button
+                        type="reset"
+                        label="Clear"
+                        variant="neutral">
+                    </lightning-button>
+                </div>
+
+            </lightning-record-edit-form>
+
+        </div>
+    </lightning-card>
+</template>
